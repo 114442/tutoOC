@@ -1,0 +1,18 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': getColor() === 'green',
+                'list-group-item-danger': getColor() === 'red'}">
+  <div>
+    <p align="right" style="color: grey;">{{ post.created_at | date: 'MM/dd/yyyy, h:mm a' }}</p>
+    <h2 [ngStyle]="{color: getColor()}">{{ post.title }}</h2>
+  </div>
+  <div>{{ post.content }}</div>
+  <br/>
+  <button class="btn btn-success"
+          (click)="addLike()">
+    Love it !
+  </button>
+  <button style="margin-left: 2px;" class="btn btn-danger"
+          (click)="removeLike()">
+    Don't love it !
+  </button>
+</li>
